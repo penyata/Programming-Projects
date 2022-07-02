@@ -1,0 +1,17 @@
+################################################
+# Name: Daniel Pena
+#
+# Date: 6/25/2022
+# Program: nmap scan script
+# Purpose: Bash Script in which scan a list of IP addresses
+#
+#################################################
+
+#!/bin/bash
+
+input="IPFile.txt"
+echo $input
+while IFS= read -r line
+do
+  nmap -sC -sV "$line" >> NmapLog.txt
+done < "$input"
